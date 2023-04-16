@@ -15,6 +15,6 @@ public class CustomerResource {
   @GetMapping("/{customerId}")
   public ResponseEntity<Customer> getCustomerSummaryDetail(
       @PathVariable("customerId") final int customerId) {
-    return ResponseEntity.status(HttpStatus.OK).body(new Customer(1, "x", "y", 2));
+    return ResponseEntity.status(HttpStatus.OK).body(new Customer(0, "x", "y", 2));
   }
 }
