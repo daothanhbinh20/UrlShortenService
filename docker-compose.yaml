@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+#  database:
+#    image: postgres
+#    container_name: postgres-db
+
+  accountservice:
+    build: .
+    container_name: accountservice-app
+    ports:
+      - "8080:8080"
+#    depends_on:
+#      - database
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/example_db
+#      SPRING_DATASOURCE_USERNAME: example_user
+#      SPRING_DATASOURCE_PASSWORD: example_password
