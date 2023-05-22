@@ -20,5 +20,7 @@ COPY --from=builder /app/build/libs/*.jar ./accountservice.jar
 # Expose the default port for the Spring Boot application
 EXPOSE 8080
 
+RUN sleep 60
+
 # Run the Spring Boot application
 CMD ["java", "-jar", "accountservice.jar"]

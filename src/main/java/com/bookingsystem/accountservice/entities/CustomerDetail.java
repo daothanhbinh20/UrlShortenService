@@ -2,13 +2,13 @@ package com.bookingsystem.accountservice.entities;
 
 import java.util.Objects;
 
-public class Customer {
+public class CustomerDetail {
   private final int customerId;
   private final String email;
   private final String name;
-  private final int phoneNumber;
+  private final String phoneNumber;
 
-  public Customer(int customerId, String email, String name, int phoneNumber) {
+  public CustomerDetail(int customerId, String email, String name, String phoneNumber) {
     this.customerId = customerId;
     this.email = email;
     this.name = name;
@@ -27,7 +27,7 @@ public class Customer {
     return name;
   }
 
-  public int getPhoneNumber() {
+  public String getPhoneNumber() {
     return phoneNumber;
   }
 
@@ -35,11 +35,11 @@ public class Customer {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    Customer customer = (Customer) o;
-    return customerId == customer.customerId
-        && phoneNumber == customer.phoneNumber
-        && Objects.equals(email, customer.email)
-        && Objects.equals(name, customer.name);
+    CustomerDetail customerDetail = (CustomerDetail) o;
+    return customerId == customerDetail.customerId
+        && phoneNumber == customerDetail.phoneNumber
+        && Objects.equals(email, customerDetail.email)
+        && Objects.equals(name, customerDetail.name);
   }
 
   @Override

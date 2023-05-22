@@ -34,6 +34,7 @@ dependencies {
 	implementation("org.springframework.data:spring-data-jdbc-core:1.2.1.RELEASE")
 	implementation 'org.springframework.boot:spring-boot-starter-activemq'
 	implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.19.0'
+	implementation ("mysql:mysql-connector-java:8.0.29")
 	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
 }
 

@@ -22,14 +22,10 @@ services:
     depends_on:
       - mysql
 
-#  accountService:
-#    build: .
-#    container_name: accountservice-app
-#    ports:
-#      - "8080:8080"
-##    depends_on:
-##      - database
-##    environment:
-##      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/example_db
-##      SPRING_DATASOURCE_USERNAME: example_user
-##      SPRING_DATASOURCE_PASSWORD: example_password
+  accountservice:
+    build: .
+    container_name: accountservice
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
