@@ -23,9 +23,30 @@ services:
       - mysql
 
   accountservice:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: accountservice
     ports:
       - "8080:8080"
+      - "8086:8086"
     depends_on:
       - mysql
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+
+  grafana:
+    image: grafana/grafana-enterprise
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=your_password
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
