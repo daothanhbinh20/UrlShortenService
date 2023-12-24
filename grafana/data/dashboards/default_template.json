@@ -18,14 +18,13 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 2,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "b8927e40-ed0e-4f68-afc9-662926d77490"
+        "uid": "my_unique_uid"
       },
       "description": "Number of requests over the last minute",
       "fieldConfig": {
@@ -103,7 +102,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "b8927e40-ed0e-4f68-afc9-662926d77490"
+            "uid": "my_unique_uid"
           },
           "editorMode": "code",
           "expr": "sum by (instance) (increase(http_server_requests_seconds_count{}[1m]))",
@@ -118,7 +117,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "b8927e40-ed0e-4f68-afc9-662926d77490"
+        "uid": "my_unique_uid"
       },
       "fieldConfig": {
         "defaults": {
@@ -196,7 +195,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "b8927e40-ed0e-4f68-afc9-662926d77490"
+            "uid": "my_unique_uid"
           },
           "editorMode": "code",
           "expr": "avg (rate(http_server_requests_seconds_sum[1m]) / rate(http_server_requests_seconds_count[1m]) >= 0)",
