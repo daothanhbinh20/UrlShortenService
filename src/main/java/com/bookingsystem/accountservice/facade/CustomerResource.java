@@ -1,6 +1,8 @@
 package com.bookingsystem.accountservice.facade;
 
-import com.bookingsystem.accountservice.entities.Customer;
+import com.bookingsystem.accountservice.entities.CustomerDetail;
+import com.bookingsystem.accountservice.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -12,9 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(path = "customer")
 public class CustomerResource {
 
+  private CustomerService customerService;
+
+  @Autowired
+  public CustomerResource(CustomerService customerService) {
+    this.customerService = customerService;
+  }
+
   @GetMapping("/{customerId}")
-  public ResponseEntity<Customer> getCustomerSummaryDetail(
+  public ResponseEntity<CustomerDetail> getCustomerSummaryDetail(
       @PathVariable("customerId") final int customerId) {
-    return ResponseEntity.status(HttpStatus.OK).body(new Customer(1, "x", "y", 2));
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(this.customerService.getCustomerDetail(customerId));
   }
 }
