@@ -1,17 +1,55 @@
 version: '3.9'
 services:
-#  database:
-#    image: postgres
-#    container_name: postgres-db
-
   accountservice:
-    build: .
-    container_name: accountservice-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: accountservice
     ports:
       - "8080:8080"
-#    depends_on:
-#      - database
-#    environment:
-#      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/example_db
-#      SPRING_DATASOURCE_USERNAME: example_user
-#      SPRING_DATASOURCE_PASSWORD: example_password
+      - "8086:8086"
+      - "5005:5005"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    command: ["--default-authentication-plugin=mysql_native_password"]
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: account_service
+      MYSQL_SSL_MODE: DISABLED # Disable SSL
+      MYSQL_INIT_CONNECT: SET GLOBAL ssl_disabled = 'YES'
+    ports:
+      - 3306:3306
+
+  flyway:
+    image: flyway/flyway
+    restart: on-failure
+    command: -url=jdbc:mysql://mysql:3306/account_service?useSSL=false -user=username -password=password migrate
+    volumes:
+      - ./src/main/resources/db/migration:/flyway/sql
+    depends_on:
+      - mysql
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+
+  grafana:
+    image: grafana/grafana-enterprise
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=your_password
+    volumes:
+      # https://grafana.com/docs/grafana/latest/administration/provisioning
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/data/dashboards:/var/lib/grafana/dashboards
