@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM azul/zulu-openjdk-alpine:17-latest AS builder
+FROM azul/zulu-openjdk-alpine:17 AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY . .
 RUN ./gradlew clean assemble
 
 # Stage 2: Run the application
-FROM azul/zulu-openjdk-alpine:17-latest
+FROM azul/zulu-openjdk-alpine:17
 
 WORKDIR /app
 
