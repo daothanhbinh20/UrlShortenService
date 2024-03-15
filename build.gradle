@@ -46,7 +46,10 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-tasks.named('asciidoctor') {
-	inputs.dir snippetsDir
-	dependsOn test
+task startDocker(){
+	doLast {
+		exec {
+			commandLine 'docker', 'compose', 'up', '--force-recreate', '--build'
+		}
+	}
 }
