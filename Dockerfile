@@ -21,4 +21,4 @@ COPY --from=builder /app/build/libs/*.jar ./accountservice.jar
 EXPOSE 8080
 
 # Run the Spring Boot application
-CMD ["java", "-jar", "accountservice.jar"]
+CMD ["java", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005", "-jar", "accountservice.jar"]
