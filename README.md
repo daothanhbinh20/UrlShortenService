@@ -45,15 +45,15 @@ curl http://localhost:8080/SHORT_ALIAS
 ```
 
 ## Future Work
-- Integrate a Java Client Interface and update the `/urlShortener` endpoint to support `application/json` Content-Type.
-- Implement Log management tools like ELK stack or Promtail.
-- Develop end-to-end tests (e2e tests).
-- Configure GitHub workflows for automated testing.
-- Enable Minikube for local deployment.
-- Set up production-ready deployment within the local network.
-- Optimize the length of shortened URLs by revising the hashing mechanism; currently, full Sha-256 hash is used for uniqueness.
-- Implement on-heap caching.
-- Integrate Redis caching for improved performance.
+- [x] Integrate a Java Client Interface and update the `/urlShortener` endpoint to support `application/json` Content-Type.
+- [ ] Implement Log management tools like ELK stack or Promtail.
+- [ ] Develop end-to-end tests (e2e tests).
+- [ ] Configure GitHub workflows for automated testing.
+- [ ] Enable Minikube for local deployment.
+- [ ] Set up production-ready deployment within the local network.
+- [ ] Optimize the length of shortened URLs by revising the hashing mechanism; currently, full Sha-256 hash is used for uniqueness.
+- [ ] Implement on-heap caching.
+- [ ] Integrate Redis caching for improved performance.
 
 
 ## Contributors
