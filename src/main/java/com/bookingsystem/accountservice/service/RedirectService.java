@@ -1,7 +1,6 @@
 package com.bookingsystem.accountservice.service;
 
 import com.bookingsystem.accountservice.repository.RedirectRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.security.MessageDigest;
