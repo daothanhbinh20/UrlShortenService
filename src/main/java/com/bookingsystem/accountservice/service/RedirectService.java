@@ -22,13 +22,13 @@ public class RedirectService {
     }
 
     public String createRedirectMapping(final String longUrl) {
-        final String shortKey = generateShortKey(longUrl);
-        redirectRepository.createRedirectMapping(longUrl, shortKey);
+        final String urlShortKey = generateUrlShortKey(longUrl);
+        redirectRepository.createRedirectMapping(longUrl, urlShortKey);
 
-        return shortKey;
+        return urlShortKey;
     }
 
-    public String generateShortKey(final String longUrl) {
+    public String generateUrlShortKey(final String longUrl) {
         try {
             // Generate a SHA-256 hash of the long URL.
             MessageDigest md = MessageDigest.getInstance(HASHING_ALGORITHM);
