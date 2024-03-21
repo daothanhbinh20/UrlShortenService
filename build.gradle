@@ -21,6 +21,34 @@ ext {
 	set('snippetsDir', file("build/generated-snippets"))
 }
 
+sourceSets {
+	clientInterface {
+		java {
+			srcDirs = ['src/clientInterface/java']
+		}
+	}
+	main {
+		java {
+			srcDirs = ['src/main/java']
+			compileClasspath += clientInterface.output
+			runtimeClasspath += clientInterface.output
+		}
+		resources {
+			srcDirs = ['src/main/resources']
+		}
+	}
+	test {
+		java {
+			srcDirs = ['src/test/java']
+			compileClasspath += clientInterface.output
+			runtimeClasspath += clientInterface.output
+		}
+		resources {
+			srcDirs = ['src/test/resources']
+		}
+	}
+}
+
 dependencies {
 	//SpringBoot dependencies
 	def springBootVersion = '3.2.3'
