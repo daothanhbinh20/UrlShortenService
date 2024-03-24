@@ -6,9 +6,7 @@ public record ShortenUrlResponseEntity(String urlShortKey) {
 
   @Override
   public String toString() {
-    return "ShortenUrlResponseEntity{" +
-        "urlShortKey='" + urlShortKey + '\'' +
-        '}';
+    return "ShortenUrlResponseEntity{" + "urlShortKey='" + urlShortKey + '\'' + '}';
   }
 
   @Override

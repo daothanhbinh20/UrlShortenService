@@ -6,12 +6,12 @@ import java.util.Objects;
 public class RedirectMapping {
   final String shortKey;
   final String longUrl;
-  final Timestamp CreatedTime;
+  final Timestamp createdTime;
 
   public RedirectMapping(final String shortKey, final String longUrl, final Timestamp createdTime) {
     this.shortKey = shortKey;
     this.longUrl = longUrl;
-    CreatedTime = createdTime;
+    this.createdTime = createdTime;
   }
 
   public String getShortKey() {
@@ -23,22 +23,26 @@ public class RedirectMapping {
   }
 
   public Timestamp getCreatedTime() {
-    return CreatedTime;
+    return createdTime;
   }
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     RedirectMapping that = (RedirectMapping) o;
     return Objects.equals(shortKey, that.shortKey)
         && Objects.equals(longUrl, that.longUrl)
-        && Objects.equals(CreatedTime, that.CreatedTime);
+        && Objects.equals(createdTime, that.createdTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(shortKey, longUrl, CreatedTime);
+    return Objects.hash(shortKey, longUrl, createdTime);
   }
 
   @Override
@@ -51,7 +55,7 @@ public class RedirectMapping {
         + longUrl
         + '\''
         + ", CreatedTime="
-        + CreatedTime
+        + createdTime
         + '}';
   }
 }
