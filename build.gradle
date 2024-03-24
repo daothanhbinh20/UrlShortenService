@@ -93,6 +93,3 @@ task startDocker(){
 		}
 	}
 }
-
-// Make the 'check' task depend on 'checkstyle' task
-check.dependsOn 'checkstyle'
