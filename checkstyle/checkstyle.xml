@@ -270,6 +270,7 @@
     <module name="OverloadMethodsDeclarationOrder"/>
     <module name="VariableDeclarationUsageDistance"/>
     <module name="CustomImportOrder">
+      <property name="severity" value="ignore"/>
       <property name="sortImportsInGroupAlphabetically" value="true"/>
       <property name="separateLineBetweenGroups" value="true"/>
       <property name="customImportOrderRules" value="STATIC###THIRD_PARTY_PACKAGE"/>
@@ -295,6 +296,7 @@
                     RECORD_DEF"/>
     </module>
     <module name="OperatorWrap">
+      <property name="severity" value="ignore"/>
       <property name="option" value="NL"/>
       <property name="tokens"
         value="BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE, LITERAL_INSTANCEOF, LOR,
