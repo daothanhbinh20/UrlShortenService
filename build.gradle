@@ -3,6 +3,7 @@ plugins {
 	id "org.flywaydb.flyway" version "9.8.1"
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 	id 'org.springframework.boot' version '3.2.3'
+	id 'checkstyle'
 }
 
 group = 'com.bookingsystem'
@@ -11,6 +12,17 @@ version = '0.0.1-SNAPSHOT'
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
 	targetCompatibility = JavaVersion.VERSION_17
+}
+
+checkstyle {
+	toolVersion = "10.14.2"
+	configFile = file("$rootDir/checkstyle/checkstyle.xml")
+	ignoreFailures = false // whether to fail the build if Checkstyle errors are found
+	showViolations = true // whether to display Checkstyle violations in the console
+}
+
+tasks.withType(Checkstyle) {
+	outputs.upToDateWhen {false}
 }
 
 repositories {
