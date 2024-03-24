@@ -46,6 +46,7 @@ curl http://localhost:8080/SHORT_ALIAS
 
 ## Future Work
 - [x] Integrate a Java Client Interface and update the `/urlShortener` endpoint to support `application/json` Content-Type.
+- [x] Add Checkstyle task
 - [ ] Implement Log management tools like ELK stack or Promtail.
 - [ ] Develop end-to-end tests (e2e tests).
 - [ ] Configure GitHub workflows for automated testing.
