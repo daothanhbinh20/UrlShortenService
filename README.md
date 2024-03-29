@@ -49,7 +49,7 @@ curl http://localhost:8080/SHORT_ALIAS
 - [x] Add Checkstyle task
 - [ ] Implement Log management tools like ELK stack or Promtail.
 - [ ] Develop end-to-end tests (e2e tests).
-- [ ] Configure GitHub workflows for automated testing.
+- [x] Configure GitHub workflows for automated testing.
 - [ ] Enable Minikube for local deployment.
 - [ ] Set up production-ready deployment within the local network.
 - [ ] Optimize the length of shortened URLs by revising the hashing mechanism; currently, full Sha-256 hash is used for uniqueness.
