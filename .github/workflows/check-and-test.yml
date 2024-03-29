@@ -25,7 +25,7 @@ jobs:
         run: ./gradlew check -x test
 
       - name: Publish checkstyle task
-        uses: jwgmeligmeyling/checkstyle-github-action@1.2
+        uses: jwgmeligmeyling/checkstyle-github-action@v1.2
         if: always()
         with:
           name: 'checkstyle reports'
