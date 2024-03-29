@@ -30,3 +30,4 @@ jobs:
         with:
           name: 'checkstyle reports'
           path: 'build/reports/checkstyle/*.xml'
+          token: ${{ github.token }}
