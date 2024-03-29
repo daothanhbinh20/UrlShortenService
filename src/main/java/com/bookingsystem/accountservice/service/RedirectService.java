@@ -23,7 +23,7 @@ public class RedirectService {
 
   public String createRedirectMapping(final String longUrl) {
     final String urlShortKey = generateUrlShortKey(longUrl);
-    redirectRepository.createRedirectMapping(longUrl, urlShortKey);
+     redirectRepository.createRedirectMapping(longUrl, urlShortKey);
 
     return urlShortKey;
   }
