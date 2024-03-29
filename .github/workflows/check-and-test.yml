@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
 
     steps:
@@ -31,4 +31,3 @@ jobs:
         with:
           name: 'checkstyle reports'
           path: 'build/reports/checkstyle/*.xml'
-          token: ${{ github.token }}
