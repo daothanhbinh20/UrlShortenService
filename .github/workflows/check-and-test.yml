@@ -23,3 +23,8 @@ jobs:
 
       - name: Run gradle check
         run: ./gradlew check -x test
+
+      - name: Publish checkstyle task
+        uses: jwgmeligmeyling/checkstyle-github-action@master
+        with:
+          path: 'build/reports/checkstyle/*.xml'
